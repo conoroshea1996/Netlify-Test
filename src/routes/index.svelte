@@ -60,11 +60,3 @@
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
 
 
-<div class="sr-only">
-<!--You can iterate over the links from your preload fetch of posts-->
-	{#each posts as { slug, title }}
-		<a rel="prefetch" href="blog/{ slug }">{title}</a>
-	{/each}
-<!--And manually put any links that are breaking as well (it means Sapper doesn't think you're using them)-->
-<a rel="prefetch" href="/someotherpage">Some page name for screen readers (nobody else sees it)</a>
-</div>
