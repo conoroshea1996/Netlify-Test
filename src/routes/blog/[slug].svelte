@@ -6,6 +6,7 @@
 		const res = await this.fetch(`blog/${params.slug}.json`);
 		const data = await res.json();
 
+		console.log(data);
 		if (res.status === 200) {
 			return { post: data };
 		} else {
@@ -61,5 +62,6 @@
 <h1>{post.title}</h1>
 
 <div class="content">
+	<img src="{post.image}" alt="hero" />
 	{@html post.html}
 </div>

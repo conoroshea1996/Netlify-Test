@@ -16,3 +16,4 @@ collections:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "HeroImage", name: "image", widget: "image" }
