@@ -1,7 +1,5 @@
 ---
 slug: Testing
-title: Hello world
+title: First
 ---
-**Hello world** 
-
-![](/uploads/capture.png)
+***Hello World***
