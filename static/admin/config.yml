@@ -1,19 +1,27 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
-
-publish_mode: editorial_workflow # Allows you to save drafts before publishing them
-media_folder: static/uploads # Media files will be stored in the repo under static/images/uploads
-public_folder: /uploads # The src attribute for uploaded media will begin with /images/uploads
-
+  branch: master # Branch to update (optional; defaults to master)
+# publish_mode: editorial_workflow # didn't work when testing locally...
+display_url: https://routify-netlifycms.netlify.app
+logo_url: https://routify-netlifycms.netlify.app/images/hero.jpg
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "static/posts" # The path to the folder where our blog posts are stored
-    identifier_field: slug
+  - name: "homepage"
+    label: "Homepage"
+    extension: "md"
+    folder: "src/pages/cms/homepage"
+    create: false # Allow users to create new documents in this collection
+    slug: "{{title}}"
+    fields:
+      - { name: "title", label: "Title (<h1>)", widget: "string" }
+      - { name: "text", label: "text", widget: "markdown" }
+  - name: "blog"
+    label: "Blogs"
+    folder: "src/pages/blogs"
     create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "HeroImage", name: "image", widget: "image" }
+    slug: "{{title}}"
+    fields:
+      - {name: "slug", label: "slug", widget: "string"}
+      - { name: "title", label: "title", widget: "string" }
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
